@@ -21,5 +21,22 @@ function tap() {
   }
 }
 
+function next() {
+  index = (index + 1) % jokes.length;
+  show(jokes[index].setup);
+  showingPunchline = false;
+}
+
+function prev() {
+  index = (index - 1 + jokes.length) % jokes.length;
+  show(jokes[index].setup);
+  showingPunchline = false;
+}
+
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'ArrowRight') next();
+  if (e.key === 'ArrowLeft') prev();
+});
+
 // Display the first joke's setup on load
 show(jokes[index].setup);
