@@ -15,9 +15,7 @@ function tap() {
     show(jokes[index].punchline);
     showingPunchline = true;
   } else {
-    index = (index + 1) % jokes.length;
-    show(jokes[index].setup);
-    showingPunchline = false;
+    next();
   }
 }
 
