@@ -76,6 +76,9 @@ test.describe('Dadabase', () => {
     const cardBox = await page.locator('#card').boundingBox();
     const backBox = await backBtn.boundingBox();
     const nextBox = await nextBtn.boundingBox();
+    expect(cardBox).not.toBeNull();
+    expect(backBox).not.toBeNull();
+    expect(nextBox).not.toBeNull();
     expect(backBox.y).toBeGreaterThan(cardBox.y);
     expect(nextBox.y).toBeGreaterThan(cardBox.y);
   });
