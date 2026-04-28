@@ -50,6 +50,7 @@ h1 {
 }
 
 #setup-text {
+  font-family: 'Nunito', Arial, sans-serif;
   font-size: 1.4rem;
   color: #333;
   line-height: 1.6;
