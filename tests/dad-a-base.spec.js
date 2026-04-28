@@ -16,7 +16,7 @@ const JOKES = [
   { setup: 'What do you call a fake noodle?', punchline: 'An impasta.' },
   { setup: 'Why did the math book look so sad?', punchline: 'Because it had too many problems.' },
   { setup: 'What do you call a bear with no teeth?', punchline: 'A gummy bear.' },
-  { setup: 'I only know 25 letters of the alphabet...', punchline: "I don't know y." },
+  { setup: "Why can't a nose be 12 inches long?", punchline: 'Because then it would be a foot.' },
   { setup: 'What did the ocean say to the beach?', punchline: 'Nothing, it just waved.' },
   { setup: 'Why did the golfer bring an extra pair of pants?', punchline: 'In case he got a hole in one.' },
   { setup: 'What do you call a factory that makes okay products?', punchline: 'A satisfactory.' },
