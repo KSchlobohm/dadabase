@@ -6,29 +6,40 @@ const jokes = [
 let index = 0;
 let showingPunchline = false;
 
-function show(text) {
-  document.getElementById('joke-text').textContent = text;
+function loadJoke(i) {
+  document.getElementById('setup-text').textContent = jokes[i].setup;
+  const punchlineEl = document.getElementById('punchline-text');
+  punchlineEl.textContent = jokes[i].punchline;
+  punchlineEl.classList.add('hidden');
+  showingPunchline = false;
+  updateHint();
+}
+
+function updateHint() {
+  document.querySelector('.hint').textContent = showingPunchline
+    ? 'tap to hide • use Next/Back to navigate'
+    : 'tap to reveal';
 }
 
 function tap() {
-  if (!showingPunchline) {
-    show(jokes[index].punchline);
-    showingPunchline = true;
+  const punchlineEl = document.getElementById('punchline-text');
+  showingPunchline = !showingPunchline;
+  if (showingPunchline) {
+    punchlineEl.classList.remove('hidden');
   } else {
-    next();
+    punchlineEl.classList.add('hidden');
   }
+  updateHint();
 }
 
 function next() {
   index = (index + 1) % jokes.length;
-  show(jokes[index].setup);
-  showingPunchline = false;
+  loadJoke(index);
 }
 
 function prev() {
   index = (index - 1 + jokes.length) % jokes.length;
-  show(jokes[index].setup);
-  showingPunchline = false;
+  loadJoke(index);
 }
 
 document.addEventListener('keydown', function (e) {
@@ -36,5 +47,5 @@ document.addEventListener('keydown', function (e) {
   if (e.key === 'ArrowLeft') prev();
 });
 
-// Display the first joke's setup on load
-show(jokes[index].setup);
+// Display the first joke on load
+loadJoke(index);

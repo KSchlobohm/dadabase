@@ -23,39 +23,51 @@ test.describe('Dad-A-Base', () => {
   });
 
   test('displays the first joke setup on load', async ({ page }) => {
-    await expect(page.locator('#joke-text')).toHaveText(JOKES[0].setup);
+    await expect(page.locator('#setup-text')).toHaveText(JOKES[0].setup);
+    await expect(page.locator('#punchline-text')).toBeHidden();
   });
 
-  test('tapping the card reveals the punchline', async ({ page }) => {
+  test('tapping the card reveals the punchline while keeping the setup visible', async ({ page }) => {
     await page.locator('#card').click();
-    await expect(page.locator('#joke-text')).toHaveText(JOKES[0].punchline);
+    await expect(page.locator('#setup-text')).toHaveText(JOKES[0].setup);
+    await expect(page.locator('#punchline-text')).toBeVisible();
+    await expect(page.locator('#punchline-text')).toHaveText(JOKES[0].punchline);
   });
 
-  test('tapping the card a second time advances to the next joke setup', async ({ page }) => {
+  test('tapping the card a second time hides the punchline and stays on the same joke', async ({ page }) => {
     await page.locator('#card').click(); // reveal punchline
-    await page.locator('#card').click(); // advance to next joke
-    await expect(page.locator('#joke-text')).toHaveText(JOKES[1].setup);
+    await page.locator('#card').click(); // hide punchline
+    await expect(page.locator('#punchline-text')).toBeHidden();
+    await expect(page.locator('#setup-text')).toHaveText(JOKES[0].setup);
   });
 
   test('Next button advances to the next joke', async ({ page }) => {
     await page.getByRole('button', { name: /next/i }).click();
-    await expect(page.locator('#joke-text')).toHaveText(JOKES[1].setup);
+    await expect(page.locator('#setup-text')).toHaveText(JOKES[1].setup);
   });
 
   test('Back button goes to the previous joke (wraps around)', async ({ page }) => {
     // Starting at joke 0, going back should wrap to the last joke
     await page.getByRole('button', { name: /back/i }).click();
-    await expect(page.locator('#joke-text')).toHaveText(JOKES[JOKES.length - 1].setup);
+    await expect(page.locator('#setup-text')).toHaveText(JOKES[JOKES.length - 1].setup);
+  });
+
+  test('navigating while punchline is visible resets to hidden on new joke', async ({ page }) => {
+    await page.locator('#card').click(); // reveal punchline
+    await expect(page.locator('#punchline-text')).toBeVisible();
+    await page.getByRole('button', { name: /next/i }).click();
+    await expect(page.locator('#setup-text')).toHaveText(JOKES[1].setup);
+    await expect(page.locator('#punchline-text')).toBeHidden();
   });
 
   test('ArrowRight key advances to the next joke', async ({ page }) => {
     await page.keyboard.press('ArrowRight');
-    await expect(page.locator('#joke-text')).toHaveText(JOKES[1].setup);
+    await expect(page.locator('#setup-text')).toHaveText(JOKES[1].setup);
   });
 
   test('ArrowLeft key goes to the previous joke (wraps around)', async ({ page }) => {
     await page.keyboard.press('ArrowLeft');
-    await expect(page.locator('#joke-text')).toHaveText(JOKES[JOKES.length - 1].setup);
+    await expect(page.locator('#setup-text')).toHaveText(JOKES[JOKES.length - 1].setup);
   });
 
   test('navigation wraps forward from last joke to first', async ({ page }) => {
@@ -63,7 +75,7 @@ test.describe('Dad-A-Base', () => {
     for (let i = 0; i < JOKES.length; i++) {
       await page.getByRole('button', { name: /next/i }).click();
     }
-    await expect(page.locator('#joke-text')).toHaveText(JOKES[0].setup);
+    await expect(page.locator('#setup-text')).toHaveText(JOKES[0].setup);
   });
 
   test('Back and Next buttons are visible near the bottom of the card', async ({ page }) => {

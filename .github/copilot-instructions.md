@@ -25,8 +25,8 @@ There is no bundler, no framework, and no backend. `app.js` runs directly in the
 
 **Jokes are hardcoded in two places.** `app.js` holds the canonical joke array used at runtime. `tests/dad-a-base.spec.js` has its own copy of the same jokes (in `const JOKES`) used to assert expected text. When adding or changing jokes, update both.
 
-**State lives in two module-level variables** in `app.js`: `index` (current joke position) and `showingPunchline` (boolean). All navigation functions (`tap`, `next`, `prev`) mutate these directly.
+**State lives in two module-level variables** in `app.js`: `index` (current joke position) and `showingPunchline` (boolean). `loadJoke(i)` is the single function that resets both — always call it when navigating. `tap()` is the only path that mutates `showingPunchline`.
 
-**Navigation always resets `showingPunchline` to `false`** when moving to a new joke. `tap()` is the only path that sets it to `true`.
+**Setup and punchline are separate DOM elements.** `#setup-text` is always visible; `#punchline-text` starts hidden and is toggled by tapping the card. Navigation (`next`, `prev`) always resets the punchline to hidden via `loadJoke`. Use `.hidden` (a `display:none` utility class) to control punchline visibility.
 
-**Tests use `page.locator('#card')` and `page.locator('#joke-text')`** — these IDs are load-bearing for the test suite. Don't rename them without updating the tests.
+**Tests use `#setup-text` and `#punchline-text`** — these IDs are load-bearing for the test suite. Don't rename them without updating the tests.
