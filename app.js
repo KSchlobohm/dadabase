@@ -1,6 +1,9 @@
 const jokes = [
   { setup: "Why don't skeletons fight?", punchline: "They don't have the guts." },
-  { setup: "I used to hate facial hair...", punchline: "but then it grew on me." }
+  { setup: "I used to hate facial hair...", punchline: "but then it grew on me." },
+  { setup: "I'm reading a book about anti-gravity...", punchline: "It's impossible to put down." },
+  { setup: "Why did the scarecrow win an award?", punchline: "Because he was outstanding in his field." },
+  { setup: "I used to be a banker...", punchline: "but I lost interest." }
 ];
 
 let index = 0;
