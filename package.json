@@ -1,23 +1,24 @@
 {
-  "name": "dadabase",
+  "name": "dad-a-base",
   "version": "1.0.0",
   "description": "A simple web app that displays a curated set of dad jokes in a tap-to-reveal flashcard-style interface.",
   "main": "app.js",
   "scripts": {
+    "start": "npx serve . --listen 3000",
     "test": "playwright test"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/KSchlobohm/dadabase.git"
+    "url": "git+https://github.com/KSchlobohm/dad-a-base.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/KSchlobohm/dadabase/issues"
+    "url": "https://github.com/KSchlobohm/dad-a-base/issues"
   },
-  "homepage": "https://github.com/KSchlobohm/dadabase#readme",
+  "homepage": "https://github.com/KSchlobohm/dad-a-base#readme",
   "devDependencies": {
     "@playwright/test": "^1.59.1",
     "serve": "^14.2.6"
