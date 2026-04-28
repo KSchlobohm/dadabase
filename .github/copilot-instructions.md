@@ -23,6 +23,8 @@ There is no bundler, no framework, and no backend. `app.js` runs directly in the
 
 ## Key Conventions
 
+**Jokes must work verbally.** All jokes must land when spoken aloud — no visual or written-only punchlines (e.g. a punchline that only works because of spelling). When adding jokes, verify the punchline makes sense heard out loud.
+
 **Jokes are hardcoded in two places.** `app.js` holds the canonical joke array used at runtime. `tests/dad-a-base.spec.js` has its own copy of the same jokes (in `const JOKES`) used to assert expected text. When adding or changing jokes, update both.
 
 **State lives in two module-level variables** in `app.js`: `index` (current joke position) and `showingPunchline` (boolean). `loadJoke(i)` is the single function that resets both — always call it when navigating. `tap()` is the only path that mutates `showingPunchline`.

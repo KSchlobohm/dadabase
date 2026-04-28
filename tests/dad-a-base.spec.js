@@ -10,7 +10,6 @@ const JOKES = [
   { setup: "Why can't you give Elsa a balloon?", punchline: "Because she'll let it go." },
   { setup: "What do you call cheese that isn't yours?", punchline: 'Nacho cheese.' },
   { setup: 'Why did the bicycle fall over?', punchline: 'Because it was two-tired.' },
-  { setup: 'What do you call a fish without eyes?', punchline: 'A fsh.' },
   { setup: 'How do you organize a space party?', punchline: 'You planet.' },
   { setup: 'What do you call a sleeping dinosaur?', punchline: 'A dino-snore.' },
   { setup: "Why don't eggs tell jokes?", punchline: "They'd crack each other up." },
@@ -22,6 +21,7 @@ const JOKES = [
   { setup: 'Why did the golfer bring an extra pair of pants?', punchline: 'In case he got a hole in one.' },
   { setup: 'What do you call a factory that makes okay products?', punchline: 'A satisfactory.' },
   { setup: 'Did you hear about the claustrophobic astronaut?', punchline: 'He just needed a little space.' },
+  { setup: 'Why do bees have sticky hair?', punchline: 'Because they use a honeycomb.' },
 ];
 
 test.describe('Dad-A-Base', () => {
