@@ -4,6 +4,7 @@
   "description": "A simple web app that displays a curated set of dad jokes in a tap-to-reveal flashcard-style interface.",
   "main": "app.js",
   "scripts": {
+    "start": "npx serve . --listen 3000",
     "test": "playwright test"
   },
   "repository": {
