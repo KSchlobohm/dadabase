@@ -43,7 +43,7 @@ test.describe('Dad-A-Base', () => {
     await page.locator('#card').click();
     await expect(page.locator('#setup-text')).toHaveText(JOKES[0].setup);
     await expect(page.locator('#punchline-text')).toBeVisible();
-    await expect(page.locator('#punchline-text')).toContainText(JOKES[0].punchline);
+    await expect(page.locator('#punchline-text')).toHaveText(JOKES[0].punchline);
   });
 
   test('tapping the card a second time hides the punchline and stays on the same joke', async ({ page }) => {

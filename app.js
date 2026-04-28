@@ -27,8 +27,12 @@ let showingPunchline = false;
 function loadJoke(i) {
   document.getElementById('setup-text').textContent = jokes[i].setup;
   const punchlineEl = document.getElementById('punchline-text');
-  punchlineEl.innerHTML = '';
-  punchlineEl.appendChild(document.createTextNode(jokes[i].punchline));
+  punchlineEl.textContent = jokes[i].punchline;
+  punchlineEl.classList.add('hidden');
+  showingPunchline = false;
+
+  const linkContainer = document.getElementById('joke-link-container');
+  linkContainer.innerHTML = '';
   if (jokes[i].link) {
     const a = document.createElement('a');
     a.href = jokes[i].link;
@@ -36,10 +40,9 @@ function loadJoke(i) {
     a.target = '_blank';
     a.rel = 'noopener noreferrer';
     a.className = 'joke-link';
-    punchlineEl.appendChild(a);
+    linkContainer.appendChild(a);
   }
-  punchlineEl.classList.add('hidden');
-  showingPunchline = false;
+
   updateHint();
 }
 
