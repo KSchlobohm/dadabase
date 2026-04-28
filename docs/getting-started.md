@@ -2,13 +2,24 @@
 
 ## Prerequisites
 
-- [Node.js](https://nodejs.org/) (LTS recommended)
-- [GitHub Copilot CLI](https://docs.github.com/copilot/concepts/agents/about-copilot-cli) *(optional — for AI-assisted development)*
+Install the following with [winget](https://learn.microsoft.com/windows/package-manager/winget/):
+
+```bash
+winget install OpenJS.NodeJS.LTS   # required — provides npm
+winget install GitHub.Copilot      # for AI-assisted development
+```
+
+## Recommended Tools
+
+- **[VS Code Insiders](https://code.visualstudio.com/insiders/)** for reviewing changes
+
+```bash
+winget install Microsoft.VisualStudioCode.Insiders
+```
 
 ## Setup
 
 ```bash
-# Install dependencies
 npm install
 ```
 
