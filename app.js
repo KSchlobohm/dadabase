@@ -42,6 +42,7 @@ function loadJoke(i) {
     a.className = 'joke-link';
     linkContainer.appendChild(a);
   }
+  linkContainer.classList.add('hidden');
 
   updateHint();
 }
@@ -54,11 +55,14 @@ function updateHint() {
 
 function tap() {
   const punchlineEl = document.getElementById('punchline-text');
+  const linkContainer = document.getElementById('joke-link-container');
   showingPunchline = !showingPunchline;
   if (showingPunchline) {
     punchlineEl.classList.remove('hidden');
+    linkContainer.classList.remove('hidden');
   } else {
     punchlineEl.classList.add('hidden');
+    linkContainer.classList.add('hidden');
   }
   updateHint();
 }
