@@ -12,14 +12,14 @@ const JOKES = [
   },
 ];
 
-test.describe('Dadabase', () => {
+test.describe('Dad-A-Base', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/');
   });
 
   test('shows the page title', async ({ page }) => {
-    await expect(page).toHaveTitle('Dadabase');
-    await expect(page.locator('h1')).toHaveText('Dadabase');
+    await expect(page).toHaveTitle('Dad-A-Base');
+    await expect(page.locator('h1')).toHaveText('Dad-A-Base');
   });
 
   test('displays the first joke setup on load', async ({ page }) => {
