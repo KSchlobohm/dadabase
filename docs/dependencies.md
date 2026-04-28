@@ -4,13 +4,31 @@ This app has no runtime dependencies. It is plain HTML, CSS, and JavaScript that
 
 ## Developer Tools
 
-| Tool | Install | Purpose |
-|---|---|---|
-| [Node.js LTS](https://nodejs.org/) | `winget install OpenJS.NodeJS.LTS` | Provides `npm` to install dev dependencies and run scripts |
-| [GitHub Copilot CLI](https://docs.github.com/copilot/concepts/agents/about-copilot-cli) | `winget install GitHub.Copilot` | AI-assisted development |
-| [VS Code Insiders](https://code.visualstudio.com/insiders/) | `winget install Microsoft.VisualStudioCode.Insiders` | Reviewing changes |
+### Node.js LTS
 
-## Development
+Provides `npm` to install dev dependencies and run scripts.
+
+```bash
+winget install OpenJS.NodeJS.LTS
+```
+
+### GitHub Copilot CLI
+
+AI-assisted development.
+
+```bash
+winget install GitHub.Copilot
+```
+
+### VS Code Insiders
+
+Recommended for reviewing changes.
+
+```bash
+winget install Microsoft.VisualStudioCode.Insiders
+```
+
+## Development Packages
 
 | Package | Version | Purpose |
 |---|---|---|
