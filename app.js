@@ -1,4 +1,5 @@
 const jokes = [
+  { setup: "What do you call a factory that makes okay products?", punchline: "A satisfactory.", link: "https://store.steampowered.com/app/526870/Satisfactory/" },
   { setup: "Why don't skeletons fight?", punchline: "They don't have the guts." },
   { setup: "I used to hate facial hair...", punchline: "but then it grew on me." },
   { setup: "I'm reading a book about anti-gravity...", punchline: "It's impossible to put down." },
@@ -16,7 +17,6 @@ const jokes = [
   { setup: "Why can't a nose be 12 inches long?", punchline: "Because then it would be a foot." },
   { setup: "What did the ocean say to the beach?", punchline: "Nothing, it just waved." },
   { setup: "Why did the golfer bring an extra pair of pants?", punchline: "In case he got a hole in one." },
-  { setup: "What do you call a factory that makes okay products?", punchline: "A satisfactory." },
   { setup: "Did you hear about the claustrophobic astronaut?", punchline: "He just needed a little space." },
   { setup: "Why do bees have sticky hair?", punchline: "Because they use a honeycomb." }
 ];
@@ -27,7 +27,17 @@ let showingPunchline = false;
 function loadJoke(i) {
   document.getElementById('setup-text').textContent = jokes[i].setup;
   const punchlineEl = document.getElementById('punchline-text');
-  punchlineEl.textContent = jokes[i].punchline;
+  punchlineEl.innerHTML = '';
+  punchlineEl.appendChild(document.createTextNode(jokes[i].punchline));
+  if (jokes[i].link) {
+    const a = document.createElement('a');
+    a.href = jokes[i].link;
+    a.textContent = '🎮 Play on Steam';
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+    a.className = 'joke-link';
+    punchlineEl.appendChild(a);
+  }
   punchlineEl.classList.add('hidden');
   showingPunchline = false;
   updateHint();

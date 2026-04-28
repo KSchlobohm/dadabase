@@ -68,6 +68,19 @@ h1 {
   line-height: 1.5;
 }
 
+.joke-link {
+  display: block;
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+  color: #1b6fa8;
+  text-decoration: none;
+  font-style: normal;
+}
+
+.joke-link:hover {
+  text-decoration: underline;
+}
+
 .hidden {
   display: none;
 }
