@@ -1,21 +1,6 @@
 # Getting Started
 
-## Prerequisites
-
-Install the following with [winget](https://learn.microsoft.com/windows/package-manager/winget/):
-
-```bash
-winget install OpenJS.NodeJS.LTS   # required — provides npm
-winget install GitHub.Copilot      # for AI-assisted development
-```
-
-## Recommended Tools
-
-- **[VS Code Insiders](https://code.visualstudio.com/insiders/)** for reviewing changes
-
-```bash
-winget install Microsoft.VisualStudioCode.Insiders
-```
+See [Dependencies](dependencies.md) for assumed environment tools.
 
 ## Setup
 
