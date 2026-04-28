@@ -40,6 +40,7 @@ function loadJoke(i) {
     a.target = '_blank';
     a.rel = 'noopener noreferrer';
     a.className = 'joke-link';
+    a.addEventListener('click', e => e.stopPropagation());
     linkContainer.appendChild(a);
   }
   linkContainer.classList.add('hidden');
