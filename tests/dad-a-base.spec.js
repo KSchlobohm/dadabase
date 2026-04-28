@@ -96,14 +96,14 @@ test.describe('Dad-A-Base', () => {
     await expect(backBtn).toBeVisible();
     await expect(nextBtn).toBeVisible();
 
-    // Both buttons should be below the card
+    // Both buttons should be below the bottom edge of the card
     const cardBox = await page.locator('#card').boundingBox();
     const backBox = await backBtn.boundingBox();
     const nextBox = await nextBtn.boundingBox();
     expect(cardBox).not.toBeNull();
     expect(backBox).not.toBeNull();
     expect(nextBox).not.toBeNull();
-    expect(backBox.y).toBeGreaterThan(cardBox.y);
-    expect(nextBox.y).toBeGreaterThan(cardBox.y);
+    expect(backBox.y).toBeGreaterThan(cardBox.y + cardBox.height);
+    expect(nextBox.y).toBeGreaterThan(cardBox.y + cardBox.height);
   });
 });
