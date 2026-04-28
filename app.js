@@ -60,7 +60,9 @@ function tap() {
   showingPunchline = !showingPunchline;
   if (showingPunchline) {
     punchlineEl.classList.remove('hidden');
-    linkContainer.classList.remove('hidden');
+    if (linkContainer.querySelector('a')) {
+      linkContainer.classList.remove('hidden');
+    }
   } else {
     punchlineEl.classList.add('hidden');
     linkContainer.classList.add('hidden');
