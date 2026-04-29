@@ -1,8 +1,14 @@
 #!/bin/sh
-# Enforce that commits are made from the KSchlobohm GitHub account.
+# Optionally enforce that commits are made from a configured GitHub account.
+# Set EXPECTED_GITHUB_USER to your GitHub username to enable this check:
+#   setx EXPECTED_GITHUB_USER "your-github-username"
+# Then restart your terminal.
 
-EXPECTED_USER="KSchlobohm"
+EXPECTED_USER="${EXPECTED_GITHUB_USER:-}"
 
+if [ -z "$EXPECTED_USER" ]; then
+  exit 0
+fi
 if ! command -v gh > /dev/null 2>&1; then
   echo "ERROR: GitHub CLI (gh) not found. Cannot verify GitHub identity."
   echo "Install gh from https://cli.github.com and authenticate as $EXPECTED_USER"
